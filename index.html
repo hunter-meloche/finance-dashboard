@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Finance Dashboard</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -17,9 +18,13 @@
       padding: 2rem 1rem;
     }
 
-    header {
+    .container {
       max-width: 1100px;
-      margin: 0 auto 2.5rem;
+      margin: 0 auto;
+    }
+
+    header {
+      margin-bottom: 2.5rem;
     }
 
     header h1 {
@@ -35,9 +40,8 @@
       color: #64748b;
     }
 
-    .section-label {
-      max-width: 1100px;
-      margin: 0 auto 0.75rem;
+    h2.section-label {
+      margin-bottom: 0.75rem;
       font-size: 0.7rem;
       font-weight: 600;
       letter-spacing: 0.1em;
@@ -46,11 +50,10 @@
     }
 
     .grid {
-      max-width: 1100px;
-      margin: 0 auto 2.5rem;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1rem;
+      margin-bottom: 2.5rem;
     }
 
     a.card {
@@ -121,93 +124,95 @@
 </head>
 <body>
 
-  <header>
-    <h1>Finance Dashboard</h1>
-    <p>All tools in one place — click any card to open the app.</p>
-  </header>
+  <div class="container">
+    <header>
+      <h1>Finance Dashboard</h1>
+      <p>All tools in one place — click any card to open the app.</p>
+    </header>
 
-  <div class="section-label">Macroeconomics &amp; Policy</div>
-  <div class="grid">
-    <a class="card" href="/finance/macro/">
-      <div class="card-header">
-        <div class="card-icon icon-indigo">📊</div>
-        <span class="card-name">Macro Command Center</span>
-      </div>
-      <p class="card-desc">Real-time Fed policy dashboard — PCE, unemployment, yield curve, credit spreads, carry trade risk, and a weighted model that forecasts rate decisions. AI analysis via Claude.</p>
-      <div class="card-path">/finance/macro/</div>
-    </a>
+    <h2 class="section-label">Macroeconomics &amp; Policy</h2>
+    <div class="grid">
+      <a class="card" href="/finance/macro/">
+        <div class="card-header">
+          <div class="card-icon icon-indigo">📊</div>
+          <span class="card-name">Macro Command Center</span>
+        </div>
+        <p class="card-desc">Real-time Fed policy dashboard — PCE, unemployment, yield curve, credit spreads, carry trade risk, and a weighted model that forecasts rate decisions. AI analysis via Claude.</p>
+        <div class="card-path">/finance/macro/</div>
+      </a>
 
-    <a class="card" href="/finance/fed-sentiment/">
-      <div class="card-header">
-        <div class="card-icon icon-violet">🏦</div>
-        <span class="card-name">Fed Sentiment Analyzer</span>
-      </div>
-      <p class="card-desc">Scrapes live FOMC statements and runs them through FinBERT to classify sentences as Hawkish / Dovish / Neutral. Displays an aggregate sentiment dial.</p>
-      <div class="card-path">/finance/fed-sentiment/</div>
-    </a>
-  </div>
+      <a class="card" href="/finance/fed-sentiment/">
+        <div class="card-header">
+          <div class="card-icon icon-violet">🏦</div>
+          <span class="card-name">Fed Sentiment Analyzer</span>
+        </div>
+        <p class="card-desc">Scrapes live FOMC statements and runs them through FinBERT to classify sentences as Hawkish / Dovish / Neutral. Displays an aggregate sentiment dial.</p>
+        <div class="card-path">/finance/fed-sentiment/</div>
+      </a>
+    </div>
 
-  <div class="section-label">Markets &amp; Equities</div>
-  <div class="grid">
-    <a class="card" href="/finance/technical/">
-      <div class="card-header">
-        <div class="card-icon icon-sky">📈</div>
-        <span class="card-name">Technical Analysis Scanner</span>
-      </div>
-      <p class="card-desc">SMA 20/50/200, RSI, MACD, Bollinger Bands, and volume for 20 major S&amp;P 500 stocks. Signal scanner classifies each ticker as overbought, oversold, or trending.</p>
-      <div class="card-path">/finance/technical/</div>
-    </a>
+    <h2 class="section-label">Markets &amp; Equities</h2>
+    <div class="grid">
+      <a class="card" href="/finance/technical/">
+        <div class="card-header">
+          <div class="card-icon icon-sky">📈</div>
+          <span class="card-name">Technical Analysis Scanner</span>
+        </div>
+        <p class="card-desc">SMA 20/50/200, RSI, MACD, Bollinger Bands, and volume for 20 major S&amp;P 500 stocks. Signal scanner classifies each ticker as overbought, oversold, or trending.</p>
+        <div class="card-path">/finance/technical/</div>
+      </a>
 
-    <a class="card" href="/finance/options-iv/">
-      <div class="card-header">
-        <div class="card-icon icon-rose">⚡</div>
-        <span class="card-name">Options IV Scanner</span>
-      </div>
-      <p class="card-desc">Implied volatility rank, IV percentile, put/call ratio, and signal classification across 20 major tickers. IV history chart and near-term options chain on click.</p>
-      <div class="card-path">/finance/options-iv/</div>
-    </a>
+      <a class="card" href="/finance/options-iv/">
+        <div class="card-header">
+          <div class="card-icon icon-rose">⚡</div>
+          <span class="card-name">Options IV Scanner</span>
+        </div>
+        <p class="card-desc">Implied volatility rank, IV percentile, put/call ratio, and signal classification across 20 major tickers. IV history chart and near-term options chain on click.</p>
+        <div class="card-path">/finance/options-iv/</div>
+      </a>
 
-    <a class="card" href="/finance/sector-rotation/">
-      <div class="card-header">
-        <div class="card-icon icon-teal">🔄</div>
-        <span class="card-name">Sector Rotation Tracker</span>
-      </div>
-      <p class="card-desc">Rotation signals across all 11 S&amp;P 500 SPDR sector ETFs vs SPY. 1W/1M/3M returns, relative strength, and momentum score. Classifies each as rotating in, out, or neutral.</p>
-      <div class="card-path">/finance/sector-rotation/</div>
-    </a>
+      <a class="card" href="/finance/sector-rotation/">
+        <div class="card-header">
+          <div class="card-icon icon-teal">🔄</div>
+          <span class="card-name">Sector Rotation Tracker</span>
+        </div>
+        <p class="card-desc">Rotation signals across all 11 S&amp;P 500 SPDR sector ETFs vs SPY. 1W/1M/3M returns, relative strength, and momentum score. Classifies each as rotating in, out, or neutral.</p>
+        <div class="card-path">/finance/sector-rotation/</div>
+      </a>
 
-    <a class="card" href="/finance/earnings/">
-      <div class="card-header">
-        <div class="card-icon icon-amber">📅</div>
-        <span class="card-name">Earnings Calendar</span>
-      </div>
-      <p class="card-desc">Upcoming earnings for 50 major S&amp;P 500 stocks — report dates, EPS estimates (consensus/high/low), sector filtering, and EPS history with surprise % for last 4 quarters.</p>
-      <div class="card-path">/finance/earnings/</div>
-    </a>
-  </div>
+      <a class="card" href="/finance/earnings/">
+        <div class="card-header">
+          <div class="card-icon icon-amber">📅</div>
+          <span class="card-name">Earnings Calendar</span>
+        </div>
+        <p class="card-desc">Upcoming earnings for 50 major S&amp;P 500 stocks — report dates, EPS estimates (consensus/high/low), sector filtering, and EPS history with surprise % for last 4 quarters.</p>
+        <div class="card-path">/finance/earnings/</div>
+      </a>
+    </div>
 
-  <div class="section-label">Commodities &amp; Ratios</div>
-  <div class="grid">
-    <a class="card" href="/finance/commodities/">
-      <div class="card-header">
-        <div class="card-icon icon-orange">🪙</div>
-        <span class="card-name">Commodities Ratio Tracker</span>
-      </div>
-      <p class="card-desc">Price ratios between 9 commodities and equity indices. 252-day rolling mean, ±2σ bands, Z-scores, and anomaly detection to flag mean-reversion opportunities.</p>
-      <div class="card-path">/finance/commodities/</div>
-    </a>
-  </div>
+    <h2 class="section-label">Commodities &amp; Ratios</h2>
+    <div class="grid">
+      <a class="card" href="/finance/commodities/">
+        <div class="card-header">
+          <div class="card-icon icon-orange">🪙</div>
+          <span class="card-name">Commodities Ratio Tracker</span>
+        </div>
+        <p class="card-desc">Price ratios between 9 commodities and equity indices. 252-day rolling mean, ±2σ bands, Z-scores, and anomaly detection to flag mean-reversion opportunities.</p>
+        <div class="card-path">/finance/commodities/</div>
+      </a>
+    </div>
 
-  <div class="section-label">Portfolio</div>
-  <div class="grid">
-    <a class="card" href="/finance/portfolio/">
-      <div class="card-header">
-        <div class="card-icon icon-emerald">💼</div>
-        <span class="card-name">Portfolio Tracker</span>
-      </div>
-      <p class="card-desc">Track stock positions with live prices. Unrealized P&amp;L, allocation pie chart, and 30-day performance vs SPY benchmark. Positions stored in SQLite via REST API.</p>
-      <div class="card-path">/finance/portfolio/</div>
-    </a>
+    <h2 class="section-label">Portfolio</h2>
+    <div class="grid">
+      <a class="card" href="/finance/portfolio/">
+        <div class="card-header">
+          <div class="card-icon icon-emerald">💼</div>
+          <span class="card-name">Portfolio Tracker</span>
+        </div>
+        <p class="card-desc">Track stock positions with live prices. Unrealized P&amp;L, allocation pie chart, and 30-day performance vs SPY benchmark. Positions stored in SQLite via REST API.</p>
+        <div class="card-path">/finance/portfolio/</div>
+      </a>
+    </div>
   </div>
 
 </body>
